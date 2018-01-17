@@ -1,0 +1,55 @@
+{
+	"name": "第一关",
+	"bgName": "background_A_jpg",
+	"winCondition": {
+		"type": "OccupyOther"
+	},
+	"planets": 
+	[
+		{
+			"x": 106,
+			"y": 536,
+			"name": "left_bottom",
+			"country": "zhang",
+			"genTime": 1000,
+			"texname": "wormhole_A_png",
+			"initialShip": 5
+		},
+		{
+			"x": 106,
+			"y": 73,
+			"name": "left_top",
+			"country": "li",
+			"genTime": 2000,
+			"texname": "wormhole_A_png",
+			"initialShip": 5
+		},
+		{
+			"x": 799,
+			"y": 73,
+			"name": "right_top",
+			"country": "li",
+			"genTime": 2000,
+			"texname": "wormhole_A_png",
+			"initialShip": 5
+		},
+		{
+			"x": 779,
+			"y": 546,
+			"name": "right_bottom",
+			"country": "zhang",
+			"genTime": 2000,
+			"texname": "wormhole_A_png",
+			"initialShip": 5
+		},
+		{
+			"x": 412,
+			"y": 312,
+			"name": "center",
+			"country": null,
+			"genTime": 500,
+			"texname": "wormhole_B_png",
+			"initialShip": 10
+		}
+	]
+}

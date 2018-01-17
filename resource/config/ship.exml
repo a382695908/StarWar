@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="ship" width="32" height="32" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Image id="ui_bg" width="32" height="32" x="16" y="16" source="ship_png" anchorOffsetX="16" anchorOffsetY="16"/>
+</e:Skin>
