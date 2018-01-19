@@ -1,0 +1,22 @@
+message Player
+{
+	required int32 id = 1;
+	required string name = 2;
+	required string head = 3;
+}
+
+message RoomInfo
+{
+	repeated Player members = 1;
+}
+
+message StartMatchMsg
+{
+	required string name = 1;
+}
+
+message ResultMsg
+{
+	required int32 errid = 1;
+	optional string errmsg = 2;
+}

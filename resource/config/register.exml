@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="register" width="1024" height="768" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Button id="ui_start" label="快速匹配" x="412" y="418"/>
+	<e:Label text="姓名:" x="343" y="268"/>
+	<e:TextInput id="ui_name" width="200" height="40" x="440" y="263"/>
+	<e:Button id="ui_cancel" label="取消" x="540" y="418"/>
+	<e:Label id="ui_matching" text="正在匹配..." x="467" y="354"/>
+</e:Skin>

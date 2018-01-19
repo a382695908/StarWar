@@ -17,6 +17,8 @@
 	"autoGenerateExmlsList": true,
 	"exmls": [
 		"resource/config/planet.exml",
+		"resource/config/register.exml",
+		"resource/config/room.exml",
 		"resource/config/ship.exml",
 		"resource/config/universe.exml",
 		"resource/eui_skins/ButtonSkin.exml",

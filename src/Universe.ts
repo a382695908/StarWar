@@ -1,3 +1,4 @@
+
 class Universe extends eui.Component
 {
 	public ui_level_name: eui.Label;
@@ -14,13 +15,6 @@ class Universe extends eui.Component
 		this.skinName = "resource/config/universe.exml";
 		Universe.inst = this;
 		this.configUI();
-		// let s = new State();
-		// s.onchange = (state)=>{
-		// 	console.log(state.toString());
-		// };
-		// s.add("attack");
-		// s.rm("attack.want");
-
 	}
 	activePlanet() {
 		return this.planetControl.activePlanet;

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="room" width="1024" height="768" xmlns:e="http://ns.egret.com/eui">
+	<e:Rect width="1024" height="768" x="0" y="0" fillColor="0xbfbdbd"/>
+	<e:Image width="380" height="96" x="104" y="208" source="diban_png"/>
+	<e:Image width="70" height="70" x="124" y="221" source="touxiang_png"/>
+	<e:Label text="姓名姓名姓名" x="220" y="241" textColor="0xffffff" bold="true"/>
+	<e:Image width="380" height="96" x="104" y="384" source="diban_png"/>
+	<e:Image width="70" height="70" x="124" y="397" source="touxiang_png"/>
+	<e:Label text="姓名姓名姓名" x="220" y="417" textColor="0xFFFFFF" bold="true"/>
+	<e:Image width="380" height="96" x="564" y="208" source="diban_png"/>
+	<e:Image width="70" height="70" x="584" y="221" source="touxiang_png"/>
+	<e:Label text="姓名姓名姓名" x="680" y="241" textColor="0xFFFFFF" bold="true"/>
+	<e:Image width="380" height="96" x="564" y="384" source="diban_png"/>
+	<e:Image width="70" height="70" x="584" y="397" source="touxiang_png"/>
+	<e:Label text="姓名姓名姓名" x="680" y="417" textColor="0xFFFFFF" bold="true"/>
+	<e:Image width="310" height="38" x="344" y="72" source="jueshengqianli_png"/>
+	<e:Button label="" x="422" y="606" width="180" height="60">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="duizhankaishi_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Image width="150" height="30" x="104" y="178" source="fangzhu_png"/>
+	<e:Button label="退出" x="54" y="41"/>
+</e:Skin>

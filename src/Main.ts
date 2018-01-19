@@ -142,9 +142,23 @@ class Main extends eui.UILayer {
      * Create scene interface
      */
     protected startCreateScene(): void {
-        let uni = new Universe();
-        uni.reloadByConfig(0);
-        this.addChild(uni);
+        Net.init();
+        DC.init();
+
+        this.removeChildren();
+        let scene = new Register();
+        this.replaceChild(scene);
+
+        //测试基本encode decode
+        // {
+        //     let a = new ResultMsg();
+        //     a.errid = 10;
+        //     a.errmsg = 'abcde';
+        //     let b = new ResultMsg();
+        //     b.decode(a.encode());
+        //     console.log(b+"");
+        // }
+        // return;
     }
     /**
      * 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。
@@ -186,15 +200,41 @@ class Main extends eui.UILayer {
         change();
     }
 
-    /**
-     * 点击按钮
-     * Click the button
-     */
-    private onButtonClick(e: egret.TouchEvent) {
-        let panel = new eui.Panel();
-        panel.title = "Title";
-        panel.horizontalCenter = 0;
-        panel.verticalCenter = 0;
-        this.addChild(panel);
+    public static inst: Main = null;
+    constructor(){
+        super();
+        Main.inst = this;
+    }
+    sceneChildren = [];
+    replaceChild(child){
+        if (this.sceneChildren.length===0) {
+            this.addChild(child);
+            this.sceneChildren.push(child);
+        }
+        else{
+            this.removeChild(this.sceneChildren[this.sceneChildren.length-1]);
+            this.sceneChildren[this.sceneChildren.length-1] = child;
+            this.addChild(child);
+        }
+    }
+    toastChildren = [];
+    toast(str: string){
+        console.log(str);
+        let lab = new egret.TextField();
+        lab.text = str;
+        lab.textColor = 0xffff00;
+        lab.anchorOffsetX = lab.width/2;
+        lab.anchorOffsetY = lab.height;
+        lab.x = this.width/2;
+        lab.y = lab.height/2;
+        this.addChild(lab);
+        this.toastChildren.push(lab);
+        let tw = egret.Tween.get(lab);
+        tw.to({ "y": lab.height*1.5 }, 1000);
+        tw.wait(1000);
+        tw.call(()=>{
+            this.removeChild(this.toastChildren[0]);
+            this.toastChildren.shift();
+        }, this);
     }
 }

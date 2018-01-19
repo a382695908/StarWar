@@ -37,6 +37,10 @@
     },
     {
       "name": "promise"
+    },
+    {
+      "name": "protobuf",
+      "path": "libs/protobuf"
     }
   ]
 }

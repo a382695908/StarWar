@@ -12,6 +12,7 @@
     },
     "include": [
         "src",
-        "libs"
+        "libs",
+        "libs/node_modules"
     ]
 }
