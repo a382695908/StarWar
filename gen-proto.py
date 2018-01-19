@@ -112,6 +112,7 @@ def gen_msgid(out):
 		['U_START_MATCH', 'Result'],
 		['CANCEL_MATCH', None],
 		['U_CANCEL_MATCH', 'Result'],
+		['U_UPDATE_ROOM', 'Room'],
 	]
 	fout = open(out, 'w');
 	fout.write('namespace ProtoType{\n\n')

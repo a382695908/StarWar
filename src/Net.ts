@@ -17,7 +17,7 @@ class Network extends eui.Component
 		super();
 	}
 	serveraddr(): any{
-		return ['127.0.0.1', 7788]
+		return ['10.0.72.9', 7788]
 	}
 	init(){
         this.socket = new egret.WebSocket();
