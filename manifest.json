@@ -21,7 +21,7 @@
 		"bin-debug/Net.js",
 		"bin-debug/Country.js",
 		"bin-debug/PlanetControl.js",
-		"bin-debug/ProtoAll.js",
+		"bin-debug/ProtoCenter.js",
 		"bin-debug/ProtoType.js",
 		"bin-debug/Register.js",
 		"bin-debug/Ship.js",

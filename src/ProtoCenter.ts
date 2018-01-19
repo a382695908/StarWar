@@ -42,15 +42,15 @@ class Player extends ProtoBase
 }
 
 
-class RoomInfo extends ProtoBase
+class Room extends ProtoBase
 {
 	constructor(){
 		super();
-		this.clazz = ProtoBase.root.build("RoomInfo");
+		this.clazz = ProtoBase.root.build("Room");
 		this.proto_data = new this.clazz({});
 	}
 	toString(){
-		return "RoomInfo"+this.proto_data.encodeJSON();
+		return "Room"+this.proto_data.encodeJSON();
 	}
 	
 	get members() { return this.proto_data.members; }
@@ -59,32 +59,15 @@ class RoomInfo extends ProtoBase
 }
 
 
-class StartMatchMsg extends ProtoBase
+class Result extends ProtoBase
 {
 	constructor(){
 		super();
-		this.clazz = ProtoBase.root.build("StartMatchMsg");
+		this.clazz = ProtoBase.root.build("Result");
 		this.proto_data = new this.clazz({});
 	}
 	toString(){
-		return "StartMatchMsg"+this.proto_data.encodeJSON();
-	}
-	
-	get name() { return this.proto_data.name; }
-	set name(val: string) { this.proto_data.name=val; }
-
-}
-
-
-class ResultMsg extends ProtoBase
-{
-	constructor(){
-		super();
-		this.clazz = ProtoBase.root.build("ResultMsg");
-		this.proto_data = new this.clazz({});
-	}
-	toString(){
-		return "ResultMsg"+this.proto_data.encodeJSON();
+		return "Result"+this.proto_data.encodeJSON();
 	}
 	
 	get errid() { return this.proto_data.errid; }

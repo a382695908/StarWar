@@ -1,7 +1,7 @@
 
 class DataCenter
 {
-	public hero: Player = null;
+	public player: Player = null;
 	init(){
 		Net.addEventListener(NetEvent.MESSAGE, this.onMessage, this);
 	}
@@ -10,7 +10,14 @@ class DataCenter
 	// }
 	onMessage(evt: NetEvent)
 	{
-	
+		switch (evt.id) {
+			case ProtoType.U_CREATE_PLAYER:
+			{
+				this.player = evt.msg;
+			}
+			break;
+		}
+		
 	}
 }
 

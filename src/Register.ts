@@ -39,18 +39,37 @@ class Register extends eui.Component
 		this.ui_start.enabled = false;
 		this.ui_cancel.enabled = true;
 		this.ui_matching.visible = true;
-		let msg = new StartMatchMsg();
-		msg.name = this.ui_name.text;
-		Net.send(ProtoType.START_MATCH, msg);
+		if (DC.player) {
+			Net.send(ProtoType.START_MATCH);
+			return;
+		}
+		else{
+			let msg = new Player();
+			msg.name = this.ui_name.text;
+			Net.send(ProtoType.CREATE_PLAYER, msg);
+		}
 	}
 	public onClick_ui_cancel(evt: egret.TouchEvent){
-		let msg = new StartMatchMsg();
-		msg.name = this.ui_name.text;
-		Net.send(ProtoType.CANCEL_MATCH, msg);
+		Net.send(ProtoType.CANCEL_MATCH, null);
 	}
 	onMessage(evt: NetEvent){
 		switch(evt.id)
 		{
+			case ProtoType.U_CREATE_PLAYER:
+			{
+				this.ui_name.text = DC.player.name;
+				this.ui_name.enabled = false;
+				Net.send(ProtoType.START_MATCH);
+			}
+			break;
+			case ProtoType.U_CREATE_PLAYER_ERROR:
+			{
+				this.ui_name.enabled = true;
+				this.ui_start.enabled = true;
+				this.ui_cancel.enabled = false;
+				Main.inst.toast(evt.msg.errmsg);
+			}
+			break;
 			case ProtoType.U_START_MATCH:
 			{
 				if (evt.msg.errid)
@@ -58,12 +77,8 @@ class Register extends eui.Component
 					this.ui_name.enabled = true;
 					this.ui_start.enabled = true;
 					this.ui_cancel.enabled = false;
-					Main.inst.toast(evt.msg.errmsg.toString());
 				}
-				else
-				{
-					Main.inst.toast('匹配成功');
-				}
+				Main.inst.toast(evt.msg.errmsg.toString());
 				this.ui_matching.visible = false;
 			}
 			break;

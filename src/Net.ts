@@ -77,12 +77,12 @@ class Network extends eui.Component
     private onSocketError(evt):void {
     	// Main.inst.toast("网络错误")
     }
-	send(msgid, msg){
+	send(msgid, msg?){
 		if (!this.socket.connected) {
 			Main.inst.toast('网络未连接');
 			return;
 		}
-		var msgByteArray = msg.encode();
+		var msgByteArray = msg ? msg.encode() : new egret.ByteArray();
 		var byte = new egret.ByteArray();
         byte.writeInt(msgid);
         byte.writeInt(msgByteArray.length);

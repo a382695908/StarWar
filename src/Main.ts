@@ -230,8 +230,8 @@ class Main extends eui.UILayer {
         this.addChild(lab);
         this.toastChildren.push(lab);
         let tw = egret.Tween.get(lab);
-        tw.to({ "y": lab.height*1.5 }, 1000);
-        tw.wait(1000);
+        tw.to({ "y": lab.height*1.5 }, 500);
+        tw.wait(2000);
         tw.call(()=>{
             this.removeChild(this.toastChildren[0]);
             this.toastChildren.shift();

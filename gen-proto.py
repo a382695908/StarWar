@@ -92,10 +92,10 @@ def gen_proto(fname, out):
 	print result
 
 def create_protoid(data):
-	result = [ '\texport let %s = 0x%04x;'%(name, idx) for idx,(name, proto) in enumerate(data)]
+	result = [ '\texport let %s = 0x%04x;'%(name, idx+1) for idx,(name, proto) in enumerate(data)]
 	return '\n'.join(result)
 def create_protofunc(data):
-	result = [ '\t\t\tcase %s: return new %s();'%(name, proto) for idx,(name, proto) in enumerate(data)]
+	result = [ '\t\t\tcase %s: return new %s();'%(name, proto) if proto else '' for idx,(name, proto) in enumerate(data)]
 	result = '\n'.join(result);
 	return '''
 	export function createProto(msgid){
@@ -105,10 +105,13 @@ def create_protofunc(data):
 	}'''%(result)
 def gen_msgid(out):
 	data = [
-		['START_MATCH', 'StartMatchMsg'],
-		['U_START_MATCH', 'ResultMsg'],
-		['CANCEL_MATCH', 'StartMatchMsg'],
-		['U_CANCEL_MATCH', 'ResultMsg'],
+		['CREATE_PLAYER', 'Player'],
+		['U_CREATE_PLAYER_ERROR', 'Result'],
+		['U_CREATE_PLAYER', 'Player'],
+		['START_MATCH', None],
+		['U_START_MATCH', 'Result'],
+		['CANCEL_MATCH', None],
+		['U_CANCEL_MATCH', 'Result'],
 	]
 	fout = open(out, 'w');
 	fout.write('namespace ProtoType{\n\n')
@@ -118,7 +121,7 @@ def gen_msgid(out):
 	fout.write('\n}')
 	fout.close();
 def main():
-	# gen_proto('resource/config/protoall.proto', 'src/ProtoAll.ts')
+	gen_proto('resource/config/protoall.proto', 'src/ProtoCenter.ts')
 	gen_msgid('src/ProtoType.ts')
 
 
