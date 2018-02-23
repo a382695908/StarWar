@@ -17,7 +17,7 @@ class Network extends eui.Component
 		super();
 	}
 	serveraddr(): any{
-		return ['10.0.72.9', 7788]
+		return ['10.0.3.56', 7788]
 	}
 	init(){
         this.socket = new egret.WebSocket();
@@ -33,29 +33,31 @@ class Network extends eui.Component
 	private onReceiveMessage(evt: egret.Event):void {
         var byte: egret.ByteArray = new egret.ByteArray();
         this.socket.readBytes(this.history, this.history.length);
-        let evt_dis = this.parse();
-        if (!evt_dis)
-        	return;
-        this.dispatchEvent(evt_dis);
+        while(true){
+            let evt_dis = this.parse();
+            if (!evt_dis)
+                break;
+            this.dispatchEvent(evt_dis);
+        }
     }
     parse(){
     	this.history.position = 0;
     	if (this.history.length<8) {
-    		console.log('this.history.length<8');
+    		// console.log('this.history.length<8');
     		return null;
     	}
     	else{
     		let msgid = this.history.readInt()
     		let msglen = this.history.readInt()
     		if (this.history.readAvailable<msglen) {
-    			console.log('this.history.readAvailable<msglen', this.history.readAvailable, msglen);
-    			return false;
+    			// console.log('this.history.readAvailable<msglen', this.history.readAvailable, msglen);
+    			return null;
     		}
     		else{
     			let evt = new NetEvent();
     			evt.id = msgid;
     			evt.msg = ProtoType.createProto(msgid);
-    			evt.msg.decode(this.history);
+    			evt.msg && evt.msg.decode(this.history);
     			this.removeUsedHistory(msglen+8);
     			return evt;
     		}

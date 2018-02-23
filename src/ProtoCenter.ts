@@ -78,3 +78,20 @@ class Result extends ProtoBase
 
 }
 
+
+class ForceScene extends ProtoBase
+{
+	constructor(){
+		super();
+		this.clazz = ProtoBase.root.build("ForceScene");
+		this.proto_data = new this.clazz({});
+	}
+	toString(){
+		return "ForceScene"+this.proto_data.encodeJSON();
+	}
+	
+	get scenename() { return this.proto_data.scenename; }
+	set scenename(val: string) { this.proto_data.scenename=val; }
+
+}
+

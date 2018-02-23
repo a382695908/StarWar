@@ -16,6 +16,28 @@ class DataCenter
 				this.player = evt.msg;
 			}
 			break;
+			case ProtoType.U_CREATE_ROOM:
+			{
+				let scene = new RoomScene();
+				scene.refreshByRoomMsg(evt.msg);
+				Main.inst.replaceChild(scene);
+			}
+			break;
+			case ProtoType.U_FORCE_SCENE:
+			{
+				console.log(`force enter ${evt.msg.scenename}`);
+				let scene = eval(`new ${evt.msg.scenename}()`);
+				egret.assert(scene);
+				Main.inst.replaceChild(scene);
+			}
+			break;
+			case ProtoType.U_START_GAME:
+			{
+				let scene = new Universe();
+				scene.reloadByConfig(0);
+				Main.inst.replaceChild(scene);
+			}
+			break;
 		}
 		
 	}

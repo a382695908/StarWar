@@ -8,6 +8,11 @@ namespace ProtoType{
 	export let CANCEL_MATCH = 0x0006;
 	export let U_CANCEL_MATCH = 0x0007;
 	export let U_UPDATE_ROOM = 0x0008;
+	export let U_CREATE_ROOM = 0x0009;
+	export let EXIT_ROOM = 0x000a;
+	export let START_GAME = 0x000b;
+	export let U_START_GAME = 0x000c;
+	export let U_FORCE_SCENE = 0x000d;
 
 	export function createProto(msgid){
 		switch (msgid) {
@@ -19,6 +24,11 @@ namespace ProtoType{
 
 			case U_CANCEL_MATCH: return new Result();
 			case U_UPDATE_ROOM: return new Room();
+			case U_CREATE_ROOM: return new Room();
+
+
+
+			case U_FORCE_SCENE: return new ForceScene();
 			default: return null;
 		}
 	}

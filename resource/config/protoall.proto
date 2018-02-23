@@ -15,3 +15,8 @@ message Result
 	optional int32 errid = 1;
 	optional string errmsg = 2;
 }
+
+message ForceScene
+{
+	optional string scenename = 1;
+}

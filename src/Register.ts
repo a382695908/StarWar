@@ -12,6 +12,10 @@ class Register extends eui.Component
 		this.ui_cancel.enabled = false;
 		this.ui_matching.visible = false;
 		Net.addEventListener(NetEvent.MESSAGE, this.onMessage, this);
+		if (DC.player) {
+			this.ui_name.enabled = false;
+			this.ui_name.text = DC.player.name;
+		}
 	}
 	$onRemoveFromStage(){
 		super.$onRemoveFromStage();
@@ -38,7 +42,6 @@ class Register extends eui.Component
 		this.ui_name.enabled = false;
 		this.ui_start.enabled = false;
 		this.ui_cancel.enabled = true;
-		this.ui_matching.visible = true;
 		if (DC.player) {
 			Net.send(ProtoType.START_MATCH);
 			return;
@@ -78,8 +81,11 @@ class Register extends eui.Component
 					this.ui_start.enabled = true;
 					this.ui_cancel.enabled = false;
 				}
-				Main.inst.toast(evt.msg.errmsg.toString());
-				this.ui_matching.visible = false;
+				else
+				{
+					Main.inst.toast(evt.msg.errmsg.toString());
+					this.ui_matching.visible = true;
+				}
 			}
 			break;
 			case ProtoType.U_CANCEL_MATCH:

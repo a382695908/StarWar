@@ -108,11 +108,16 @@ def gen_msgid(out):
 		['CREATE_PLAYER', 'Player'],
 		['U_CREATE_PLAYER_ERROR', 'Result'],
 		['U_CREATE_PLAYER', 'Player'],
-		['START_MATCH', None],
+		['START_MATCH', ''],
 		['U_START_MATCH', 'Result'],
-		['CANCEL_MATCH', None],
+		['CANCEL_MATCH', ''],
 		['U_CANCEL_MATCH', 'Result'],
 		['U_UPDATE_ROOM', 'Room'],
+		['U_CREATE_ROOM', 'Room'],
+		['EXIT_ROOM', ''],
+		['START_GAME', ''],
+		['U_START_GAME', ''],
+		['U_FORCE_SCENE', 'ForceScene'],
 	]
 	fout = open(out, 'w');
 	fout.write('namespace ProtoType{\n\n')
