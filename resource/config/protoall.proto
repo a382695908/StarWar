@@ -3,6 +3,7 @@ message Player
 	optional int32 id = 1;
 	optional string name = 2;
 	optional string head = 3;
+	optional int32 camp = 4;
 }
 
 message Room
@@ -20,3 +21,36 @@ message ForceScene
 {
 	optional string scenename = 1;
 }
+
+message BattleStart
+{
+	required int32 mapid = 1;
+}
+
+message UpdateTurn
+{
+	required int32 turn = 1;
+}
+
+message PlanetCommand
+{
+	required int32 fromid = 1;
+	required int32 toid = 2;
+}
+
+message OneTurn
+{
+	required int32 index = 1;
+	repeated PlanetCommand pcmds = 2;
+}
+
+message MultiTurn
+{
+	repeated OneTurn turns = 1;
+}
+
+
+
+
+
+

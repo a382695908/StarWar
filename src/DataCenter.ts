@@ -2,6 +2,7 @@
 class DataCenter
 {
 	public player: Player = null;
+	public room: Room = null;
 	init(){
 		Net.addEventListener(NetEvent.MESSAGE, this.onMessage, this);
 	}
@@ -14,6 +15,11 @@ class DataCenter
 			case ProtoType.U_CREATE_PLAYER:
 			{
 				this.player = evt.msg;
+			}
+			break;
+			case ProtoType.U_UPDATE_PLAYER:
+			{
+				this.player = evt.msg;	
 			}
 			break;
 			case ProtoType.U_CREATE_ROOM:
@@ -34,8 +40,13 @@ class DataCenter
 			case ProtoType.U_START_GAME:
 			{
 				let scene = new Universe();
-				scene.reloadByConfig(0);
+				// scene.reloadByConfig(0);
 				Main.inst.replaceChild(scene);
+			}
+			break;
+			case ProtoType.U_UPDATE_ROOM:
+			{
+				this.room = evt.msg;
 			}
 			break;
 		}

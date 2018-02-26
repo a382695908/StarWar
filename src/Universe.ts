@@ -5,8 +5,6 @@ class Universe extends eui.Component
 	public ui_bg: egret.Bitmap;
 
 	public static inst: Universe = null;
-	private countries: Country[] = [];
-	public activeCountry: Country = null;
 	public planetControl: PlanetControl = null;
 	public gsChecker: GameStateChecker = null;
 
@@ -15,12 +13,16 @@ class Universe extends eui.Component
 		this.skinName = "resource/config/universe.exml";
 		Universe.inst = this;
 		this.configUI();
+		Net.addEventListener(NetEvent.MESSAGE, this.onMessage, this);
+	}
+	$onRemoveFromStage(){
+		super.$onRemoveFromStage();
+		Net.removeEventListener(NetEvent.MESSAGE, this.onMessage, this);
 	}
 	activePlanet() {
 		return this.planetControl.activePlanet;
 	}
 	private clear(){
-		// this.activePlanet = null;
 	}
 	private configUI(){
 		this.ui_level_name.anchorOffsetX = this.ui_level_name.width/2;
@@ -37,27 +39,21 @@ class Universe extends eui.Component
 		egret.assert(lelconf);
 		this.ui_level_name.text = lelconf.name;
 		this.ui_bg.texture = RES.getRes(lelconf.bgName);
-		for(let cname of [null, "zhang", "li"]){
-			let c = new Country();
-			c.name = cname;
-			c.color = cname?randcolor():0xFFFFFF;
-			this.countries.push(c);
-		}
-		this.activeCountry = this.getCountryByName('zhang');
 		for(let pconf of lelconf.planets)
 		{
 			let p = new Planet();
 			p.reloadByConfig(pconf);
+			p.id = lelconf.planets.indexOf(pconf);
 			this.planetControl.addFightObject(p);
 		}
 		this.gsChecker.reloadByConfig(lelconf.winCondition);
 	}
-	getCountryByName(name: String): Country{
-		for(let c of this.countries){
-			if(c.name === name){
-				return c;
-			}
+	onMessage(evt: NetEvent){
+		switch(evt.id)
+		{
+			case ProtoType.U_BATTLE_START:
+				this.reloadByConfig(evt.msg.mapid);
+			break;
 		}
-		return null;
 	}
 }

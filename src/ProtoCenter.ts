@@ -39,6 +39,9 @@ class Player extends ProtoBase
 	get head() { return this.proto_data.head; }
 	set head(val: string) { this.proto_data.head=val; }
 
+	get camp() { return this.proto_data.camp; }
+	set camp(val: number) { this.proto_data.camp=val; }
+
 }
 
 
@@ -92,6 +95,97 @@ class ForceScene extends ProtoBase
 	
 	get scenename() { return this.proto_data.scenename; }
 	set scenename(val: string) { this.proto_data.scenename=val; }
+
+}
+
+
+class BattleStart extends ProtoBase
+{
+	constructor(){
+		super();
+		this.clazz = ProtoBase.root.build("BattleStart");
+		this.proto_data = new this.clazz({});
+	}
+	toString(){
+		return "BattleStart"+this.proto_data.encodeJSON();
+	}
+	
+	get mapid() { return this.proto_data.mapid; }
+	set mapid(val: number) { this.proto_data.mapid=val; }
+
+}
+
+
+class UpdateTurn extends ProtoBase
+{
+	constructor(){
+		super();
+		this.clazz = ProtoBase.root.build("UpdateTurn");
+		this.proto_data = new this.clazz({});
+	}
+	toString(){
+		return "UpdateTurn"+this.proto_data.encodeJSON();
+	}
+	
+	get turn() { return this.proto_data.turn; }
+	set turn(val: number) { this.proto_data.turn=val; }
+
+}
+
+
+class PlanetCommand extends ProtoBase
+{
+	constructor(){
+		super();
+		this.clazz = ProtoBase.root.build("PlanetCommand");
+		this.proto_data = new this.clazz({});
+	}
+	toString(){
+		return "PlanetCommand"+this.proto_data.encodeJSON();
+	}
+	
+	get fromid() { return this.proto_data.fromid; }
+	set fromid(val: number) { this.proto_data.fromid=val; }
+
+	get toid() { return this.proto_data.toid; }
+	set toid(val: number) { this.proto_data.toid=val; }
+
+}
+
+
+class OneTurn extends ProtoBase
+{
+	constructor(){
+		super();
+		this.clazz = ProtoBase.root.build("OneTurn");
+		this.proto_data = new this.clazz({});
+	}
+	toString(){
+		return "OneTurn"+this.proto_data.encodeJSON();
+	}
+	
+	get index() { return this.proto_data.index; }
+	set index(val: number) { this.proto_data.index=val; }
+
+	get pcmds() { return this.proto_data.pcmds; }
+	set pcmds(val: PlanetCommand) { this.proto_data.pcmds=val; }
+
+}
+
+
+class MultiTurn extends ProtoBase
+{
+	constructor(){
+		super();
+		this.clazz = ProtoBase.root.build("MultiTurn");
+		this.proto_data = new this.clazz({});
+	}
+	toString(){
+		return "MultiTurn"+this.proto_data.encodeJSON();
+	}
+	
+	get turns() { return this.proto_data.turns; }
+	set turns(val: OneTurn) { this.proto_data.turns=val; }
 
 }
 

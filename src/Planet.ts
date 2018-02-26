@@ -1,3 +1,4 @@
+
 class Planet extends eui.Component implements FightObject
 {
 	public ui_img: eui.Image;
@@ -5,9 +6,10 @@ class Planet extends eui.Component implements FightObject
 	public ui_frame: eui.Rect;
 	public ui_focus: eui.Rect;
 
+    public id = -1;
 	public state = new State();
 	private curShip = 0;
-	public country: Country = null;
+    public camp = null;
 	private accTimer = null;
 	private fights: FightMsg[] = [];
 	private createShipTimer = null;
@@ -51,9 +53,9 @@ class Planet extends eui.Component implements FightObject
 		this.accTimer.addEventListener(egret.TimerEvent.TIMER, this.onAccShip, this);
 		this.accTimer.start();
 		this.setCurShip(conf.initialShip || 0);
-		this.country = Universe.inst.getCountryByName(conf.country);
 		this.ui_img.texture = RES.getRes(conf.texname);
-		this.ui_frame.strokeColor = this.country.color;
+        this.camp = conf.camp;
+		// this.ui_frame.strokeColor = randcolor();
 	}
 	setCurShip(num){
 		this.curShip = num;
@@ -92,7 +94,11 @@ class Planet extends eui.Component implements FightObject
     		this.state.rm(PlanetState.WantDefence);
     		Universe.inst.activePlanet().state.add(PlanetState.Attack);
     		this.state.add(PlanetState.Defence);
-    		Universe.inst.activePlanet().fight(this);
+    		// Universe.inst.activePlanet().fight(this);
+            let msg = new PlanetCommand();
+            msg.fromid = Universe.inst.activePlanet().id;
+            msg.toid = this.id;
+            Net.send(ProtoType.PLANET_COMMAND, msg);
     	}
     }
     onStateChanged(state){
@@ -109,7 +115,7 @@ class Planet extends eui.Component implements FightObject
     	// this.fights.push(new FightMsg(planet, 1));
     }
     onhit(ship: Ship){
-    	if (ship.from.country===this.country) {
+    	if (ship.from.camp===this.camp) {
     		this.setCurShip(this.curShip+1);
     	}
     	else{

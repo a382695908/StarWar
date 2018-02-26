@@ -4,6 +4,8 @@ class PlanetControl extends eui.UILayer
 	private fobjs = {};
 	public activePlanet: Planet = null;
 	private lastTouchPlanet: Planet = null;
+	private history = [];
+	private turn = 0;
 	constructor(){
 		super();
 		this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTap, this);
@@ -12,11 +14,12 @@ class PlanetControl extends eui.UILayer
 		this.addEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEnd, this);
 		this.addEventListener(egret.TouchEvent.TOUCH_CANCEL, this.onTouchCancel, this);
 		this.touchEnabled = true;
+		Net.addEventListener(NetEvent.MESSAGE, this.onMessage, this);
 	}
-	// addPlanet(planet){
-	// 	this.planets.push(planet);
-	// 	this.addChild(planet);
-	// }
+	$onRemoveFromStage(){
+		super.$onRemoveFromStage();
+		Net.removeEventListener(NetEvent.MESSAGE, this.onMessage, this);
+	}
 	addFightObject(obj: FightObject){
 		if (keys(this.fobjs).indexOf(obj.group())<0) {
 			this.fobjs[ obj.group() ] = [];
@@ -50,8 +53,10 @@ class PlanetControl extends eui.UILayer
 		let curPlanet = this.getPlanetByTouch(new egret.Point(event.stageX,event.stageY));
 		if(!curPlanet)
 			return;
-		if (curPlanet.country !== Universe.inst.activeCountry)
+		if (curPlanet.camp !== DC.player.camp){
+			console.log('无法控制:', curPlanet.camp, DC.player.camp);
 			return;
+		}
 		this.activePlanet = this.lastTouchPlanet = curPlanet;
 		this.lastTouchPlanet.onTouchEnter();
 	}
@@ -106,5 +111,42 @@ class PlanetControl extends eui.UILayer
 			}
 		}
 		return null;
+	}
+	applyHistory(){
+		let turn = this.history.shift();
+		console.log('应用turn', turn.index);
+		let planets = this.fightObject(FightGroup.Planet);
+		for(let cmd of turn.pcmds){
+			planets[cmd.fromid].fight(planets[cmd.toid]);
+		}
+		this.turn = turn.index+1;
+
+		let msg = new UpdateTurn();
+		msg.turn = this.turn;
+		Net.send(ProtoType.UPDATE_TURN, msg);
+	}
+	onMessage(evt: NetEvent){
+		switch(evt.id)
+		{
+			case ProtoType.U_BATTLE_START:
+			{
+				this.turn = 0;
+				this.history = [];
+			}
+			break;
+			case ProtoType.U_PLANET_COMMAND:
+			{
+				for(let turn of evt.msg.turns){
+					if (turn.index<this.turn) {
+						console.log('丢弃轮', turn.index, this.turn);
+						continue;
+					}
+					this.history.push(turn);
+				}
+				// console.log('历史记录', this.history.length);
+				this.applyHistory();
+			}
+			break;
+		}
 	}
 }

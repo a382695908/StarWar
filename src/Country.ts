@@ -1,5 +1,5 @@
-class Country
-{
-	public name = "unnamed";
-	public color = 0xFFFFFF;
-}
+// class Country
+// {
+// 	public name = "unnamed";
+// 	public color = 0xFFFFFF;
+// }

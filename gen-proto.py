@@ -106,6 +106,7 @@ def create_protofunc(data):
 def gen_msgid(out):
 	data = [
 		['CREATE_PLAYER', 'Player'],
+		['U_UPDATE_PLAYER', 'Player'],
 		['U_CREATE_PLAYER_ERROR', 'Result'],
 		['U_CREATE_PLAYER', 'Player'],
 		['START_MATCH', ''],
@@ -118,6 +119,10 @@ def gen_msgid(out):
 		['START_GAME', ''],
 		['U_START_GAME', ''],
 		['U_FORCE_SCENE', 'ForceScene'],
+		['U_BATTLE_START', 'BattleStart'],
+		['PLANET_COMMAND', 'PlanetCommand'],
+		['U_PLANET_COMMAND', 'MultiTurn'],
+		['UPDATE_TURN', 'UpdateTurn'],
 	]
 	fout = open(out, 'w');
 	fout.write('namespace ProtoType{\n\n')
