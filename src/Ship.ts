@@ -5,7 +5,7 @@ class Ship extends eui.Component implements FightObject
 	private moveTimer = null;
 	constructor(){
 		super();
-		this.skinName = "resource/config/ship.exml";
+		this.skinName = "resource/eui_skins/ship.exml";
 		this.configUI();
 		this.moveTimer = new egret.Timer(16.6, 0);
 		this.moveTimer.addEventListener(egret.TimerEvent.TIMER, this.checkMove, this);

@@ -16,11 +16,6 @@
 	},
 	"autoGenerateExmlsList": true,
 	"exmls": [
-		"resource/config/planet.exml",
-		"resource/config/register.exml",
-		"resource/config/room.exml",
-		"resource/config/ship.exml",
-		"resource/config/universe.exml",
 		"resource/eui_skins/ButtonSkin.exml",
 		"resource/eui_skins/CheckBoxSkin.exml",
 		"resource/eui_skins/HScrollBarSkin.exml",
@@ -33,7 +28,12 @@
 		"resource/eui_skins/TextInputSkin.exml",
 		"resource/eui_skins/ToggleSwitchSkin.exml",
 		"resource/eui_skins/VScrollBarSkin.exml",
-		"resource/eui_skins/VSliderSkin.exml"
+		"resource/eui_skins/VSliderSkin.exml",
+		"resource/eui_skins/planet.exml",
+		"resource/eui_skins/register.exml",
+		"resource/eui_skins/room.exml",
+		"resource/eui_skins/ship.exml",
+		"resource/eui_skins/universe.exml"
 	],
 	"path": "resource/default.thm.json"
 }

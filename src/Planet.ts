@@ -16,7 +16,7 @@ class Planet extends eui.Component implements FightObject
 
 	constructor(){
 		super();
-		this.skinName = "resource/config/planet.exml";
+		this.skinName = "resource/eui_skins/planet.exml";
 		this.state.onchange.push(this.onStateChanged.bind(this));
 		this.configUI();
 		// egret.startTick(this.checkFightOther, this);

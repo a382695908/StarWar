@@ -7,7 +7,7 @@ class Register extends eui.Component
 	public ui_matching: eui.Label;
 	constructor(){
 		super();
-		this.skinName = "resource/config/register.exml";
+		this.skinName = "resource/eui_skins/register.exml";
 		this.configUI();
 		this.ui_cancel.enabled = false;
 		this.ui_matching.visible = false;

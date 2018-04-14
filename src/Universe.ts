@@ -10,7 +10,7 @@ class Universe extends eui.Component
 
 	constructor(){
 		super();
-		this.skinName = "resource/config/universe.exml";
+		this.skinName = "resource/eui_skins/universe.exml";
 		Universe.inst = this;
 		this.configUI();
 		Net.addEventListener(NetEvent.MESSAGE, this.onMessage, this);

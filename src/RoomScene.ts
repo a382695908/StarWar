@@ -10,7 +10,7 @@ class RoomScene extends eui.Component
 	private m_names: [eui.Label];
 	constructor(){
 		super();
-		this.skinName = "resource/config/room.exml";
+		this.skinName = "resource/eui_skins/room.exml";
 		this.configUI();
 		Net.addEventListener(NetEvent.MESSAGE, this.onMessage, this);
 	}
