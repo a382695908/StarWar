@@ -1,5 +1,22 @@
 {
   "global": {
-    "globalAutoLayerMarkEnable": false
+    "globalAutoLayerMarkEnable": false,
+    "globalAdsorbEnable": true,
+    "globalRulerEnable": false,
+    "gridColor": 8421504,
+    "gridEnabled": false,
+    "gridSize": 20
+  },
+  "162cc204b69": {
+    "path": "../resource/neterror.ts",
+    "class": "neterror",
+    "parentPath": "",
+    "backgroundX": 0,
+    "backgroundY": 0,
+    "backgroundWidth": -1,
+    "backgroundHeight": -1,
+    "useBgImage": true,
+    "useBgColor": true,
+    "backgroundAlpha": 100
   }
 }

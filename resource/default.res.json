@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "background_A_jpg,bg_jpg,button_down_png,button_up_png,checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,egret_icon_png,selected_png,border_png,header_png,thumb_pb_png,track_pb_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,track_sb_png,ship_png,thumb_png,track_png,tracklight_png,star_png,handle_png,off_png,on_png,wormhole_A_png,wormhole_B_png,description_json,protoall_proto,level0_json,diban_png,duizhankaishi_png,fangzhu_png,jueshengqianli_png,kuaisupipei_png,ti_png,touxiang_png",
+			"keys": "background_A_jpg,bg_jpg,button_down_png,button_up_png,checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,egret_icon_png,selected_png,border_png,header_png,thumb_pb_png,track_pb_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,track_sb_png,ship_png,thumb_png,track_png,tracklight_png,star_png,handle_png,off_png,on_png,wormhole_A_png,wormhole_B_png,description_json,protoall_proto,level0_json,diban_png,duizhankaishi_png,fangzhu_png,jueshengqianli_png,kuaisupipei_png,ti_png,touxiang_png,zixunzhongxin_bg_tiao_png,moguang_btn_kaiqi_png,dadishuloading_jpg,market_bg_xuanzepaimaiwupin_png,jiangli_meiriyindao_lingqu_png",
 			"name": "preload"
 		}
 	],
@@ -205,6 +205,31 @@
 			"name": "touxiang_png",
 			"type": "image",
 			"url": "assets/touxiang.png"
+		},
+		{
+			"name": "zixunzhongxin_bg_tiao_png",
+			"type": "image",
+			"url": "assets/zixunzhongxin_bg_tiao.png"
+		},
+		{
+			"name": "moguang_btn_kaiqi_png",
+			"type": "image",
+			"url": "assets/moguang_btn_kaiqi.png"
+		},
+		{
+			"name": "dadishuloading_jpg",
+			"type": "image",
+			"url": "assets/dadishuloading.jpg"
+		},
+		{
+			"name": "market_bg_xuanzepaimaiwupin_png",
+			"type": "image",
+			"url": "assets/market_bg_xuanzepaimaiwupin.png"
+		},
+		{
+			"name": "jiangli_meiriyindao_lingqu_png",
+			"type": "image",
+			"url": "assets/jiangli_meiriyindao_lingqu.png"
 		}
 	]
 }

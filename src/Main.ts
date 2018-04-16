@@ -136,7 +136,7 @@ class Main extends eui.UILayer {
             this.loadingView.setProgress(event.itemsLoaded, event.itemsTotal);
         }
     }
-    private textfield: egret.TextField;
+    // private textfield: egret.TextField;
     /**
      * 创建场景界面
      * Create scene interface
@@ -148,17 +148,6 @@ class Main extends eui.UILayer {
         this.removeChildren();
         let scene = new Register();
         this.replaceChild(scene);
-
-        //测试基本encode decode
-        // {
-        //     let a = new ResultMsg();
-        //     a.errid = 10;
-        //     a.errmsg = 'abcde';
-        //     let b = new ResultMsg();
-        //     b.decode(a.encode());
-        //     console.log(b+"");
-        // }
-        // return;
     }
     /**
      * 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。
@@ -174,31 +163,31 @@ class Main extends eui.UILayer {
      * 描述文件加载成功，开始播放动画
      * Description file loading is successful, start to play the animation
      */
-    private startAnimation(result: Array<any>): void {
-        let parser = new egret.HtmlTextParser();
+    // private startAnimation(result: Array<any>): void {
+    //     let parser = new egret.HtmlTextParser();
 
-        let textflowArr = result.map(text => parser.parse(text));
-        let textfield = this.textfield;
-        let count = -1;
-        let change = () => {
-            count++;
-            if (count >= textflowArr.length) {
-                count = 0;
-            }
-            let textFlow = textflowArr[count];
+    //     let textflowArr = result.map(text => parser.parse(text));
+    //     let textfield = this.textfield;
+    //     let count = -1;
+    //     let change = () => {
+    //         count++;
+    //         if (count >= textflowArr.length) {
+    //             count = 0;
+    //         }
+    //         let textFlow = textflowArr[count];
 
-            // 切换描述内容
-            // Switch to described content
-            textfield.textFlow = textFlow;
-            let tw = egret.Tween.get(textfield);
-            tw.to({ "alpha": 1 }, 200);
-            tw.wait(2000);
-            tw.to({ "alpha": 0 }, 200);
-            tw.call(change, this);
-        };
+    //         // 切换描述内容
+    //         // Switch to described content
+    //         textfield.textFlow = textFlow;
+    //         let tw = egret.Tween.get(textfield);
+    //         tw.to({ "alpha": 1 }, 200);
+    //         tw.wait(2000);
+    //         tw.to({ "alpha": 0 }, 200);
+    //         tw.call(change, this);
+    //     };
 
-        change();
-    }
+    //     change();
+    // }
 
     public static inst: Main = null;
     constructor(){

@@ -1,8 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="register" width="1024" height="768" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
-	<e:Button id="ui_start" label="快速匹配" x="412" y="418"/>
-	<e:Label text="姓名:" x="343" y="268"/>
-	<e:TextInput id="ui_name" width="200" height="40" x="440" y="263"/>
-	<e:Button id="ui_cancel" label="取消" x="540" y="418"/>
-	<e:Label id="ui_matching" text="正在匹配..." x="467" y="354"/>
+<e:Skin class="JUISkin" width="960" height="640" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+	<w:Config id="162c32901ba" ></w:Config>
+	<e:Image width="960" height="640" x="0" y="0" source="dadishuloading_jpg"/>
+	<e:Rect width="960" height="640" x="0" y="0" fillAlpha="0.5"/>
+	<e:Button id="ui_start" label="开始游戏" x="413" y="431">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="moguang_btn_kaiqi_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Button id="ui_cancel" label="取  消" x="413" y="431" enabled="true">
+		<e:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="moguang_btn_kaiqi_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+		</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Image width="600" height="60" x="170.5" y="277.5" source="zixunzhongxin_bg_tiao_png"/>
+	<e:Label id="ui_matching" text="正在寻找对手请耐心等待。。。。" x="269.5" y="290.5" fontFamily="SimHei" textColor="0xf2de79" size="30"/>
+	<e:Image width="240" height="40" x="351" y="171" source="zixunzhongxin_bg_tiao_png"/>
+	<e:TextInput id="ui_name" width="200" height="30" y="176" skinName="skins.TextInputSkin" x="371"/>
+	<e:Label text="请输入昵称" x="398.5" y="131" size="30" fontFamily="SimHei" textColor="0xf2cc4d"/>
 </e:Skin>

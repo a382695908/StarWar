@@ -27,7 +27,6 @@ class Network extends eui.Component
         this.socket.addEventListener(egret.Event.CLOSE, this.onSocketClose, this);
         this.socket.addEventListener(egret.IOErrorEvent.IO_ERROR, this.onSocketError, this);
         let addr = this.serveraddr();
-        // console.log(addr);
         this.socket.connect(addr[0], addr[1]);
 	}
 	private onReceiveMessage(evt: egret.Event):void {
@@ -50,7 +49,6 @@ class Network extends eui.Component
     		let msgid = this.history.readInt()
     		let msglen = this.history.readInt()
     		if (this.history.readAvailable<msglen) {
-    			// console.log('this.history.readAvailable<msglen', this.history.readAvailable, msglen);
     			return null;
     		}
     		else{
@@ -71,10 +69,12 @@ class Network extends eui.Component
 		this.history.position = 0;
     }
     private onSocketOpen():void {
-    	console.log("onSocketOpen");
+    	// console.log("onSocketOpen");
     }
     private onSocketClose(evt):void {
-    	Main.inst.toast("网络已关闭");
+        let scene = new NetError();
+        // scene.x = Math.random()*100;
+    	Main.inst.addChild(scene);
     }
     private onSocketError(evt):void {
     	// Main.inst.toast("网络错误")

@@ -9,7 +9,7 @@ class Register extends eui.Component
 		super();
 		this.skinName = "resource/eui_skins/register.exml";
 		this.configUI();
-		this.ui_cancel.enabled = false;
+		this.ui_cancel.visible = false;
 		this.ui_matching.visible = false;
 		Net.addEventListener(NetEvent.MESSAGE, this.onMessage, this);
 		if (DC.player) {
@@ -40,11 +40,10 @@ class Register extends eui.Component
 			return;
 		}
 		this.ui_name.enabled = false;
-		this.ui_start.enabled = false;
-		this.ui_cancel.enabled = true;
+		this.ui_start.visible = false;
+		this.ui_cancel.visible = true;
 		if (DC.player) {
 			Net.send(ProtoType.START_MATCH);
-			return;
 		}
 		else{
 			let msg = new Player();
@@ -68,8 +67,8 @@ class Register extends eui.Component
 			case ProtoType.U_CREATE_PLAYER_ERROR:
 			{
 				this.ui_name.enabled = true;
-				this.ui_start.enabled = true;
-				this.ui_cancel.enabled = false;
+				this.ui_start.visible = true;
+				this.ui_cancel.visible = false;
 				Main.inst.toast(evt.msg.errmsg);
 			}
 			break;
@@ -78,8 +77,8 @@ class Register extends eui.Component
 				if (evt.msg.errid)
 				{
 					this.ui_name.enabled = true;
-					this.ui_start.enabled = true;
-					this.ui_cancel.enabled = false;
+					this.ui_start.visible = true;
+					this.ui_cancel.visible = false;
 				}
 				else
 				{
@@ -90,8 +89,8 @@ class Register extends eui.Component
 			break;
 			case ProtoType.U_CANCEL_MATCH:
 				this.ui_name.enabled = true;
-				this.ui_start.enabled = true;
-				this.ui_cancel.enabled = false;
+				this.ui_start.visible = true;
+				this.ui_cancel.visible = false;
 				this.ui_matching.visible = false;
 				Main.inst.toast(evt.msg.toString());
 			break;

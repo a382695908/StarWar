@@ -10,8 +10,8 @@
 		"libs/protobuf/protobuf.js"
 	],
 	"game": [
-		"bin-debug/Country.js",
 		"bin-debug/Planet.js",
+		"bin-debug/AssetAdapter.js",
 		"bin-debug/DataCenter.js",
 		"bin-debug/FightObject.js",
 		"bin-debug/GameStateChecker.js",
@@ -19,7 +19,8 @@
 		"bin-debug/LoadingUI.js",
 		"bin-debug/Main.js",
 		"bin-debug/Net.js",
-		"bin-debug/AssetAdapter.js",
+		"bin-debug/NetError.js",
+		"bin-debug/Country.js",
 		"bin-debug/PlanetControl.js",
 		"bin-debug/ProtoCenter.js",
 		"bin-debug/ProtoType.js",
