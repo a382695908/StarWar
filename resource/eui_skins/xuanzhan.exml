@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="xuanzhanSkin" width="960" height="640" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+	<w:Config id="162cc815315" ></w:Config>
+	<e:Image x="0" y="0" source="11_png" width="960" height="640"/>
+	<e:Image source="22_png" x="0" y="0" width="960" height="640"/>
+	<e:Image source="33_png" x="0" y="0" width="960" height="640"/>
+	<e:Image source="44_png" x="0" y="0" width="960" height="640"/>
+	<e:Group x="677" y="278">
+		<e:Image x="182" y="-15" source="333_png"/>
+		<e:Image source="shouye_bg_fengebian_png" x="0" y="0" height="58"/>
+		<e:Label id="ui_name1" text="Label" y="13" fontFamily="SimHei" textColor="0xF75102" width="100" verticalAlign="middle" textAlign="center" x="50"/>
+		<e:Label id="ui_percent1" text="Label" y="65" fontFamily="SimHei" textColor="0xF75102" width="100" verticalAlign="middle" textAlign="center" size="20" x="50"/>
+	</e:Group>
+	<e:Group x="440" y="552">
+		<e:Image x="-100" y="-15" source="111_png"/>
+		<e:Image source="shouye_bg_fengebian_png" x="0" y="21" height="58"/>
+		<e:Label id="ui_name2" text="Label" y="34" fontFamily="SimHei" textColor="0xF75102" width="100" verticalAlign="middle" textAlign="center" x="50"/>
+		<e:Label id="ui_percent2" text="Label" y="2" fontFamily="SimHei" textColor="0xF75102" width="100" verticalAlign="middle" textAlign="center" size="20" x="50"/>
+	</e:Group>
+	<e:Image source="gonghuikuafu_bg_xuanzhan_png" x="256" y="166"/>
+	<e:Group x="429" y="18">
+		<e:Image x="-100" y="-15" source="444_png"/>
+		<e:Image source="shouye_bg_fengebian_png" x="0" y="0" height="58"/>
+		<e:Label id="ui_name0" text="Label" y="13" fontFamily="SimHei" textColor="0xF75102" width="100" verticalAlign="middle" textAlign="center" x="50"/>
+		<e:Label id="ui_percent0" text="Label" y="65" fontFamily="SimHei" textColor="0xF75102" width="100" verticalAlign="middle" textAlign="center" size="20" x="50"/>
+	</e:Group>
+	<e:Group x="100" y="278">
+		<e:Image source="222_png" x="-100" y="-15"/>
+		<e:Image source="shouye_bg_fengebian_png" x="0" y="0" height="58"/>
+		<e:Label id="ui_name3" text="Label" y="13" fontFamily="SimHei" textColor="0xF75102" width="100" verticalAlign="middle" textAlign="center" x="50"/>
+		<e:Label id="ui_percent3" text="Label" y="65" fontFamily="SimHei" textColor="0xf75102" width="100" verticalAlign="middle" textAlign="center" size="20" x="50"/>
+	</e:Group>
+</e:Skin>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="planet" width="100" height="100" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Image id="ui_focus" source="6_png" x="-59" y="-61" width="220" height="220"/>
 	<e:Image id="ui_img" width="100" height="100" x="0" y="0"/>
 	<e:Rect id="ui_frame" width="100" height="100" x="0" y="0" fillAlpha="0" strokeWeight="3" strokeColor="0xff0000" ellipseWidth="100" strokeAlpha="1"/>
-	<e:Label id="ui_ship_num" text="0" x="0" y="0" anchorOffsetX="0" width="100" anchorOffsetY="0" height="100" textAlign="center" verticalAlign="middle"/>
-	<e:Rect id="ui_focus" width="110" height="110" x="-5" y="-5" fillAlpha="0" strokeColor="0xf99500" anchorOffsetX="0" anchorOffsetY="0" strokeWeight="2" ellipseWidth="100"/>
+	<e:Label id="ui_ship_num" text="0" x="0" y="0" anchorOffsetX="0" width="100" anchorOffsetY="0" height="100" textAlign="center" verticalAlign="middle" stroke="2"/>
 </e:Skin>

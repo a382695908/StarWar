@@ -12,6 +12,7 @@
 	"game": [
 		"bin-debug/Planet.js",
 		"bin-debug/AssetAdapter.js",
+		"bin-debug/Country.js",
 		"bin-debug/DataCenter.js",
 		"bin-debug/FightObject.js",
 		"bin-debug/GameStateChecker.js",
@@ -20,15 +21,17 @@
 		"bin-debug/Main.js",
 		"bin-debug/Net.js",
 		"bin-debug/NetError.js",
-		"bin-debug/Country.js",
+		"bin-debug/BattleController.js",
 		"bin-debug/PlanetControl.js",
-		"bin-debug/ProtoCenter.js",
 		"bin-debug/ProtoType.js",
 		"bin-debug/Register.js",
-		"bin-debug/RoomScene.js",
 		"bin-debug/Ship.js",
 		"bin-debug/State.js",
+		"bin-debug/SyncScene.js",
 		"bin-debug/ThemeAdapter.js",
-		"bin-debug/Universe.js"
+		"bin-debug/Toast.js",
+		"bin-debug/Universe.js",
+		"bin-debug/egg/eggtool.js",
+		"bin-debug/egg/Widget.js"
 	]
 }

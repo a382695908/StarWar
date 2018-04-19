@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "background_A_jpg,bg_jpg,button_down_png,button_up_png,checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,egret_icon_png,selected_png,border_png,header_png,thumb_pb_png,track_pb_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,track_sb_png,ship_png,thumb_png,track_png,tracklight_png,star_png,handle_png,off_png,on_png,wormhole_A_png,wormhole_B_png,description_json,protoall_proto,level0_json,diban_png,duizhankaishi_png,fangzhu_png,jueshengqianli_png,kuaisupipei_png,ti_png,touxiang_png,zixunzhongxin_bg_tiao_png,moguang_btn_kaiqi_png,dadishuloading_jpg,market_bg_xuanzepaimaiwupin_png,jiangli_meiriyindao_lingqu_png",
+			"keys": "background_A_jpg,button_down_png,button_up_png,checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,egret_icon_png,selected_png,border_png,header_png,thumb_pb_png,track_pb_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,track_sb_png,ship_png,thumb_png,track_png,tracklight_png,star_png,handle_png,off_png,on_png,wormhole_A_png,wormhole_B_png,description_json,protoall_proto,level0_json,diban_png,duizhankaishi_png,fangzhu_png,jueshengqianli_png,kuaisupipei_png,ti_png,touxiang_png,zixunzhongxin_bg_tiao_png,moguang_btn_kaiqi_png,dadishuloading_jpg,market_bg_xuanzepaimaiwupin_png,jiangli_meiriyindao_lingqu_png,11_png,22_png,33_png,44_png,111_png,222_png,333_png,444_png,shouye_bg_fengebian_png,gonghuikuafu_bg_xuanzhan_png,0-0_png,0_png,1-1_png,1_png,2-2_png,2_png,3-3_png,3_png,4-4_png,4_png,6_png",
 			"name": "preload"
 		}
 	],
@@ -10,11 +10,6 @@
 			"name": "background_A_jpg",
 			"type": "image",
 			"url": "assets/background_A.jpg"
-		},
-		{
-			"name": "bg_jpg",
-			"type": "image",
-			"url": "assets/bg.jpg"
 		},
 		{
 			"name": "button_down_png",
@@ -230,6 +225,111 @@
 			"name": "jiangli_meiriyindao_lingqu_png",
 			"type": "image",
 			"url": "assets/jiangli_meiriyindao_lingqu.png"
+		},
+		{
+			"name": "11_png",
+			"type": "image",
+			"url": "assets/11.png"
+		},
+		{
+			"name": "22_png",
+			"type": "image",
+			"url": "assets/22.png"
+		},
+		{
+			"name": "33_png",
+			"type": "image",
+			"url": "assets/33.png"
+		},
+		{
+			"name": "44_png",
+			"type": "image",
+			"url": "assets/44.png"
+		},
+		{
+			"name": "111_png",
+			"type": "image",
+			"url": "assets/111.png"
+		},
+		{
+			"name": "222_png",
+			"type": "image",
+			"url": "assets/222.png"
+		},
+		{
+			"name": "333_png",
+			"type": "image",
+			"url": "assets/333.png"
+		},
+		{
+			"name": "444_png",
+			"type": "image",
+			"url": "assets/444.png"
+		},
+		{
+			"name": "shouye_bg_fengebian_png",
+			"type": "image",
+			"url": "assets/shouye_bg_fengebian.png"
+		},
+		{
+			"name": "gonghuikuafu_bg_xuanzhan_png",
+			"type": "image",
+			"url": "assets/gonghuikuafu_bg_xuanzhan.png"
+		},
+		{
+			"name": "0-0_png",
+			"type": "image",
+			"url": "assets/0-0.png"
+		},
+		{
+			"name": "0_png",
+			"type": "image",
+			"url": "assets/0.png"
+		},
+		{
+			"name": "1-1_png",
+			"type": "image",
+			"url": "assets/1-1.png"
+		},
+		{
+			"name": "1_png",
+			"type": "image",
+			"url": "assets/1.png"
+		},
+		{
+			"name": "2-2_png",
+			"type": "image",
+			"url": "assets/2-2.png"
+		},
+		{
+			"name": "2_png",
+			"type": "image",
+			"url": "assets/2.png"
+		},
+		{
+			"name": "3-3_png",
+			"type": "image",
+			"url": "assets/3-3.png"
+		},
+		{
+			"name": "3_png",
+			"type": "image",
+			"url": "assets/3.png"
+		},
+		{
+			"name": "4-4_png",
+			"type": "image",
+			"url": "assets/4-4.png"
+		},
+		{
+			"name": "4_png",
+			"type": "image",
+			"url": "assets/4.png"
+		},
+		{
+			"name": "6_png",
+			"type": "image",
+			"url": "assets/6.png"
 		}
 	]
 }

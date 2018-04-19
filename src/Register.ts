@@ -5,6 +5,7 @@ class Register extends eui.Component
 	public ui_name: eui.TextInput;
 	public ui_cancel: eui.Button;
 	public ui_matching: eui.Label;
+	widget = null;
 	constructor(){
 		super();
 		this.skinName = "resource/eui_skins/register.exml";
@@ -16,6 +17,8 @@ class Register extends eui.Component
 			this.ui_name.enabled = false;
 			this.ui_name.text = DC.player.name;
 		}
+		this.widget = new Widget(this);
+		this.widget.single();
 	}
 	$onRemoveFromStage(){
 		super.$onRemoveFromStage();
@@ -36,20 +39,26 @@ class Register extends eui.Component
 	}
 	public onClick_ui_start(evt: egret.TouchEvent){
 		if (!this.validName(this.ui_name.text)) {
-			Main.inst.toast('输入合法名字(1-6个字不含空格)');
+			// Main.inst.toast('输入合法名字(1-6个字不含空格)');
+			new Toast('输入合法名字(1-6个字不含空格)');
 			return;
 		}
 		this.ui_name.enabled = false;
 		this.ui_start.visible = false;
 		this.ui_cancel.visible = true;
 		if (DC.player) {
-			Net.send(ProtoType.START_MATCH);
+			this.startMatch();
 		}
 		else{
-			let msg = new Player();
+			let msg = ProtoType.create('Player');
 			msg.name = this.ui_name.text;
 			Net.send(ProtoType.CREATE_PLAYER, msg);
 		}
+	}
+	startMatch(){
+		let msg = ProtoType.create('StartMatch');
+		msg.want = 2;
+		Net.send(ProtoType.START_MATCH, msg);
 	}
 	public onClick_ui_cancel(evt: egret.TouchEvent){
 		Net.send(ProtoType.CANCEL_MATCH, null);
@@ -61,7 +70,7 @@ class Register extends eui.Component
 			{
 				this.ui_name.text = DC.player.name;
 				this.ui_name.enabled = false;
-				Net.send(ProtoType.START_MATCH);
+				this.startMatch();
 			}
 			break;
 			case ProtoType.U_CREATE_PLAYER_ERROR:
@@ -69,12 +78,12 @@ class Register extends eui.Component
 				this.ui_name.enabled = true;
 				this.ui_start.visible = true;
 				this.ui_cancel.visible = false;
-				Main.inst.toast(evt.msg.errmsg);
+				new Toast(evt.msg.resmsg);
 			}
 			break;
 			case ProtoType.U_START_MATCH:
 			{
-				if (evt.msg.errid)
+				if (evt.msg.resid)
 				{
 					this.ui_name.enabled = true;
 					this.ui_start.visible = true;
@@ -82,7 +91,7 @@ class Register extends eui.Component
 				}
 				else
 				{
-					Main.inst.toast(evt.msg.errmsg.toString());
+					new Toast(evt.msg.resmsg.toString());
 					this.ui_matching.visible = true;
 				}
 			}
@@ -92,7 +101,7 @@ class Register extends eui.Component
 				this.ui_start.visible = true;
 				this.ui_cancel.visible = false;
 				this.ui_matching.visible = false;
-				Main.inst.toast(evt.msg.toString());
+				new Toast(evt.msg.toString());
 			break;
 		}
 	}

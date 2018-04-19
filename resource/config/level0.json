@@ -12,7 +12,7 @@
 			"name": "left_bottom",
 			"camp": 0,
 			"genTime": 1000,
-			"texname": "wormhole_A_png",
+			"texname": "1_png",
 			"initialShip": 5
 		},
 		{
@@ -21,7 +21,7 @@
 			"name": "left_top",
 			"camp": 0,
 			"genTime": 2000,
-			"texname": "wormhole_A_png",
+			"texname": "1_png",
 			"initialShip": 5
 		},
 		{
@@ -30,7 +30,7 @@
 			"name": "right_top",
 			"camp": 1,
 			"genTime": 2000,
-			"texname": "wormhole_A_png",
+			"texname": "2_png",
 			"initialShip": 5
 		},
 		{
@@ -39,7 +39,7 @@
 			"name": "right_bottom",
 			"camp": 2,
 			"genTime": 2000,
-			"texname": "wormhole_A_png",
+			"texname": "3_png",
 			"initialShip": 5
 		},
 		{
@@ -48,7 +48,7 @@
 			"name": "center",
 			"camp": null,
 			"genTime": 500,
-			"texname": "wormhole_B_png",
+			"texname": "0_png",
 			"initialShip": 10
 		}
 	]

@@ -33,9 +33,9 @@
 		"resource/eui_skins/neterror.exml",
 		"resource/eui_skins/planet.exml",
 		"resource/eui_skins/register.exml",
-		"resource/eui_skins/room.exml",
 		"resource/eui_skins/ship.exml",
-		"resource/eui_skins/universe.exml"
+		"resource/eui_skins/universe.exml",
+		"resource/eui_skins/xuanzhan.exml"
 	],
 	"path": "resource/default.thm.json"
 }

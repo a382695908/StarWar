@@ -121,7 +121,7 @@ class PlanetControl extends eui.UILayer
 		}
 		this.turn = turn.index+1;
 
-		let msg = new UpdateTurn();
+		let msg = ProtoType.create('UpdateTurn');
 		msg.turn = this.turn;
 		Net.send(ProtoType.UPDATE_TURN, msg);
 	}

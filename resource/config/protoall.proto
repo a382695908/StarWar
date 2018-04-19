@@ -3,28 +3,43 @@ message Player
 	optional int32 id = 1;
 	optional string name = 2;
 	optional string head = 3;
-	optional int32 camp = 4;
 }
 
-message Room
+message StartMatch
+{
+	required int32 want = 1;
+}
+
+message StartSync
 {
 	repeated Player members = 1;
+	required int32 mapid = 2;
+	required int32 seed = 3;
+}
+
+message SyncMember
+{
+	repeated int32 playerid = 1;
+	repeated int32 progress = 2;
 }
 
 message Result
 {
-	optional int32 errid = 1;
-	optional string errmsg = 2;
+	required int32 resid = 1;
+	required string resmsg = 2;
 }
 
-message ForceScene
+message BattleMan
 {
-	optional string scenename = 1;
+	required Player player = 1;
+	required int32 camp = 2;
 }
 
 message BattleStart
 {
-	required int32 mapid = 1;
+	repeated BattleMan members = 1;
+	required int32 turninterval = 2;
+	required int32 mapid = 3;
 }
 
 message UpdateTurn

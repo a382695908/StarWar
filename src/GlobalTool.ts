@@ -34,15 +34,13 @@ enum GameState
 	Win = "win",
 }
 
-function randint()
-{
-	return Math.floor(Math.random()*100000);
-}
-
-function randcolor() {
-	let cls = [0xFF0000, 0x00FF00, 0xFFFF00, 0xFF00FF,
-		0xFFFFFFFF];
-	return cls[ randint()%cls.length ];
+function colorOfPlayer(idx) {
+	if (idx===null) {
+		return 0x808080;
+	}
+	else{
+		return [0xFF0000, 0x00FF00, 0x0000FF, 0xFFFF00][idx];
+	}
 }
 
 function keys(obj) {

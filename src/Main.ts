@@ -142,12 +142,18 @@ class Main extends eui.UILayer {
      * Create scene interface
      */
     protected startCreateScene(): void {
+        // Widget.rootView = this;
+
         Net.init();
         DC.init();
 
         this.removeChildren();
-        let scene = new Register();
-        this.replaceChild(scene);
+        // let scene = new Register();
+        // this.replaceChild(scene);
+        // let widget = new Widget(new Register());
+        // widget.push();
+        
+        new Register();
     }
     /**
      * 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。
@@ -193,37 +199,5 @@ class Main extends eui.UILayer {
     constructor(){
         super();
         Main.inst = this;
-    }
-    sceneChildren = [];
-    replaceChild(child){
-        if (this.sceneChildren.length===0) {
-            this.addChild(child);
-            this.sceneChildren.push(child);
-        }
-        else{
-            this.removeChild(this.sceneChildren[this.sceneChildren.length-1]);
-            this.sceneChildren[this.sceneChildren.length-1] = child;
-            this.addChild(child);
-        }
-    }
-    toastChildren = [];
-    toast(str: string){
-        console.log(str);
-        let lab = new egret.TextField();
-        lab.text = str;
-        lab.textColor = 0xffff00;
-        lab.anchorOffsetX = lab.width/2;
-        lab.anchorOffsetY = lab.height;
-        lab.x = this.width/2;
-        lab.y = lab.height/2;
-        this.addChild(lab);
-        this.toastChildren.push(lab);
-        let tw = egret.Tween.get(lab);
-        tw.to({ "y": lab.height*1.5 }, 500);
-        tw.wait(2000);
-        tw.call(()=>{
-            this.removeChild(this.toastChildren[0]);
-            this.toastChildren.shift();
-        }, this);
     }
 }

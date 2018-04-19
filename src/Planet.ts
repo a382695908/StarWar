@@ -4,7 +4,7 @@ class Planet extends eui.Component implements FightObject
 	public ui_img: eui.Image;
 	public ui_ship_num: eui.Label;
 	public ui_frame: eui.Rect;
-	public ui_focus: eui.Rect;
+	public ui_focus: eui.Image;
 
     public id = -1;
 	public state = new State();
@@ -19,7 +19,6 @@ class Planet extends eui.Component implements FightObject
 		this.skinName = "resource/eui_skins/planet.exml";
 		this.state.onchange.push(this.onStateChanged.bind(this));
 		this.configUI();
-		// egret.startTick(this.checkFightOther, this);
 		this.createShipTimer = new egret.Timer(100, 0);
 		this.createShipTimer.addEventListener(egret.TimerEvent.TIMER, this.checkFightOther, this);
 		this.createShipTimer.start();
@@ -55,7 +54,7 @@ class Planet extends eui.Component implements FightObject
 		this.setCurShip(conf.initialShip || 0);
 		this.ui_img.texture = RES.getRes(conf.texname);
         this.camp = conf.camp;
-		// this.ui_frame.strokeColor = randcolor();
+		this.ui_frame.strokeColor = colorOfPlayer(this.camp);
 	}
 	setCurShip(num){
 		this.curShip = num;
@@ -95,7 +94,7 @@ class Planet extends eui.Component implements FightObject
     		Universe.inst.activePlanet().state.add(PlanetState.Attack);
     		this.state.add(PlanetState.Defence);
     		// Universe.inst.activePlanet().fight(this);
-            let msg = new PlanetCommand();
+            let msg = ProtoType.create('PlanetCommand');
             msg.fromid = Universe.inst.activePlanet().id;
             msg.toid = this.id;
             Net.send(ProtoType.PLANET_COMMAND, msg);
@@ -157,8 +156,8 @@ class Planet extends eui.Component implements FightObject
     	let s = new Ship();
     	s.from = this;
     	s.to = target;
-    	s.x = this.x + randint()%this.width-this.width/2;
-    	s.y = this.y + randint()%this.height-this.height/2;
+    	s.x = this.x + eggtool.randint()%this.width-this.width/2;
+    	s.y = this.y + eggtool.randint()%this.height-this.height/2;
     	s.reloadByConfig({});
     	return s;
     }

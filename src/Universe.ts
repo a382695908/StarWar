@@ -7,13 +7,16 @@ class Universe extends eui.Component
 	public static inst: Universe = null;
 	public planetControl: PlanetControl = null;
 	public gsChecker: GameStateChecker = null;
-
-	constructor(){
+	widget = null;
+	constructor(battlestart){
 		super();
 		this.skinName = "resource/eui_skins/universe.exml";
 		Universe.inst = this;
 		this.configUI();
 		Net.addEventListener(NetEvent.MESSAGE, this.onMessage, this);
+		this.reloadByConfig(battlestart.mapid);
+		this.widget = new Widget(this);
+		this.widget.single();
 	}
 	$onRemoveFromStage(){
 		super.$onRemoveFromStage();
@@ -25,8 +28,6 @@ class Universe extends eui.Component
 	private clear(){
 	}
 	private configUI(){
-		this.ui_level_name.anchorOffsetX = this.ui_level_name.width/2;
-		this.ui_level_name.x = this.width/2;
 		this.planetControl = new PlanetControl();
 		this.addChild(this.planetControl);
 		this.gsChecker = new GameStateChecker();
@@ -51,9 +52,10 @@ class Universe extends eui.Component
 	onMessage(evt: NetEvent){
 		switch(evt.id)
 		{
-			case ProtoType.U_BATTLE_START:
-				this.reloadByConfig(evt.msg.mapid);
-			break;
+			// case ProtoType.U_BATTLE_START:
+			// 	eggtool.seed = evt.msg.randseed;
+			// 	this.reloadByConfig(evt.msg.mapid);
+			// break;
 		}
 	}
 }

@@ -1,8 +1,9 @@
 
 class DataCenter
 {
-	public player: Player = null;
-	public room: Room = null;
+	public player = null;
+	// public room: Room = null;
+	public battle: BattleController = null;
 	init(){
 		Net.addEventListener(NetEvent.MESSAGE, this.onMessage, this);
 	}
@@ -22,31 +23,16 @@ class DataCenter
 				this.player = evt.msg;	
 			}
 			break;
-			case ProtoType.U_CREATE_ROOM:
+			case ProtoType.U_BATTLE_START:
 			{
-				let scene = new RoomScene();
-				scene.refreshByRoomMsg(evt.msg);
-				Main.inst.replaceChild(scene);
+				new Universe(evt.msg);
+				this.battle = new BattleController(evt.msg);
 			}
 			break;
-			case ProtoType.U_FORCE_SCENE:
+			case ProtoType.U_START_SYNC:
 			{
-				console.log(`force enter ${evt.msg.scenename}`);
-				let scene = eval(`new ${evt.msg.scenename}()`);
-				egret.assert(scene);
-				Main.inst.replaceChild(scene);
-			}
-			break;
-			case ProtoType.U_START_GAME:
-			{
-				let scene = new Universe();
-				// scene.reloadByConfig(0);
-				Main.inst.replaceChild(scene);
-			}
-			break;
-			case ProtoType.U_UPDATE_ROOM:
-			{
-				this.room = evt.msg;
+				let scene = new SyncScene();
+				scene.refreshView(evt.msg);
 			}
 			break;
 		}
